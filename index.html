@@ -1,36 +1,57 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Pameran Seni</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        body{background-color: white;}
+
         .modal { transition: opacity 0.25s ease; }
         body.modal-active { overflow: hidden; }
         /* Memastikan tombol close selalu di atas */
         .close-button-container { z-index: 100; }
+
+        #header-bg {
+            will-change: transform, filter, opacity;
+            background-color: white;
+        }
+        .glass-effect {
+        background: linear-gradient(to bottom, 
+            rgba(255,255,255,0) 0%, 
+            rgba(71, 51, 51, 0.8) 20%, 
+            rgba(255,255,255,1) 40%);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+    <body>
+        <div id="header-container" class="relative h-screen w-full overflow-hidden">
+            <img id="header-bg" src="img\boston-public-library-l-dWFbRTMoM-unsplash.jpg" class="fixed top-0 left-0 w-full h-full object-cover z-0" alt="Header">
+        
+            <div id="header-content" class="relative flex flex-col items-center justify-center h-full text-white drop-shadow-xl ">
+                <p1 class="text-lg font-poppins">Ujian Praktek Seni Rupa Kelas 12</p1>
+                <img id="header-text" src="img\text.png"></img>
+                <!-- <h1 class="text-5xl md:text-7xl font-serif font-bold uppercase">Pameran</h1> -->
+                <p1 class="text-lg font-poppins">Pameran Karya Seni XII-Anomali<p1>
+        </div>
+    </div>
 
-    <header class="py-16 px-6 text-center bg-white border-b">
-        <h1 class="text-4xl md:text-6xl font-serif font-bold tracking-tight uppercase">Kenz Ganteng</h1>
-        <p class="mt-4 text-gray-500 max-w-2xl mx-auto italic text-lg">
-            "bibibibabibop"
-        </p>
-    </header>
-
-    <main class="max-w-6xl mx-auto p-8">
-        <div id="art-gallery" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+    <main class="relative z-20 -mt-[30vh] pt-[35vh]">
+        <div class="max-w-6xl mx-auto p-8">
+            <div id="main-text" class="relative flex flex-col items-center justify-center text-white drop-shadow-xl">
+                <p1 class="text-sm text-white mb-4">Mempersembahkan</p1> 
             </div>
+            <div class="h-[1px] bg-gray-200 w-s mb-6"></div>
+            <div id="art-gallery" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"></div>
+        </div>
     </main>
 
     <div id="modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
-        <div class="absolute w-full h-full bg-black opacity-90 cursor-pointer" onclick="closeModal()"></div>
+        <div class="absolute w-full h-full bg-black opacity-80 cursor-pointer" onclick="closeModal()"></div>
         
-        <div class="relative bg-white w-11/12 md:max-w-4xl mx-auto rounded-lg shadow-2xl z-[60] overflow-y-auto max-h-[90vh]">
-            <div class="sticky top-0 right-0 flex justify-end p-4 bg-white/80 backdrop-blur-sm close-button-container">
+        <div class="relative bg-white w-11/12 md:max-w-4xl mx-auto rounded-xl shadow-2xl z-[60] overflow-y-auto max-h-[90vh]">
+            <div class="sticky top-0 right-0 flex justify-end p-4 close-button-container">
                 <button onclick="closeModal()" class="text-gray-800 hover:text-red-600 transition-colors p-2 bg-gray-100 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -52,23 +73,48 @@
     </div>
 
     <script>
-        let allArtworks = [];
+
+        // fetch('datakarya.json')
+        //     .then(response=>response.json())
+        //     .then(data=>{
+        //         const imgElement = document.getElementById('modal-img');
+        //         imgElement.src = datakarya.${art.img}
+        //     })
+
+    window.addEventListener('scroll', function() {
+        const scrollValue = window.scrollY;
+        const headerBg = document.getElementById('header-bg');
+        const headerContent = document.getElementById('header-content');
+        const screenHeight = window.innerHeight;
+        const headerText = document.getElementById('header-text');
+
+        let progress = Math.min(scrollValue / screenHeight, 1);
+        let scale = 1 + progress * 0.5;
+        let blur = progress * 20;
+        
+        if (scrollValue <= screenHeight*1.5) {
+            headerBg.style.transform = `scale(${scale})`;
+            headerText.style.transform = `scale(${scale})`;
+            headerBg.style.filter = `blur(${blur}px)`;
+        }
+    });
+
+    let allArtworks = [];
 
     async function loadGallery() {
         try {
             const response = await fetch('datakarya.json');
             if (!response.ok) throw new Error('Gagal memuat data.json');
-            
+
             allArtworks = await response.json();
             const gallery = document.getElementById('art-gallery');
             gallery.innerHTML = ''; 
 
             allArtworks.forEach(art => {
-                // 1. Buat elemen div secara terpisah
+
                 const card = document.createElement('div');
                 card.className = "break-inside-avoid bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100 mb-6";
                 
-                // 2. Isi konten kartu
                 card.innerHTML = `
                     <img src="${art.img}" class="w-full h-auto block pointer-events-none" alt="${art.title}">
                     <div class="p-5 pointer-events-none">
@@ -77,19 +123,16 @@
                     </div>
                 `;
 
-                // 3. Tambahkan "Pendengar Klik" langsung ke elemen kartu
                 card.addEventListener('click', () => {
                     openModal(art);
                 });
 
-                // 4. Masukkan ke galeri
                 gallery.appendChild(card);
             });
         } catch (error) {
             console.error("Error:", error);
         }
     }
-
     function openModal(art) {
         document.getElementById('modal-title').innerText = art.title;
         document.getElementById('modal-artist').innerText = "Karya: " + art.artist;
