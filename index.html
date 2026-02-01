@@ -30,12 +30,24 @@
             <img id="header-bg" src="img\boston-public-library-l-dWFbRTMoM-unsplash.jpg" class="fixed top-0 left-0 w-full h-full object-cover z-0" alt="Header">
         
             <div id="header-content" class="relative flex flex-col items-center justify-center h-full text-white drop-shadow-xl ">
-                <p1 class="text-lg font-poppins">Ujian Praktek Seni Rupa Kelas 12</p1>
-                <img id="header-text" src="img\text.png"></img>
+                <div class="fixed top-12 flex flex-row items-center w-[100px] h-[50px] gap-2 bg-white rounded-full drop-shadow-xl p-3">
+                    <img src="img\logo-smada-lumajang.png" class="w-[35px] h-[35px]"></img>
+                    <img src="img\logokelas.jpg" class="w-[35px] h-[35px] items-right rounded-full"></img>
+                </div>
+
+                <p1 class="text-sm tracking-[0.3em] uppercase font-bold font-poppins drop-shadow-xl">Ujian Praktek Seni Rupa Kelas 12</p1>
+                <img id="header-text" src="img\text.png" class="p-8"></img>
                 <!-- <h1 class="text-5xl md:text-7xl font-serif font-bold uppercase">Pameran</h1> -->
-                <p1 class="text-lg font-poppins">Pameran Karya Seni XII-Anomali<p1>
+                <p1 class="text-sm tracking-[0.3em] uppercase font-bold font-poppins drop-shadow-xl">Pameran Karya Seni XII-Anomali</p1>
+
+                <div id="scroll-hint" class="absolute bottom-12 flex flex-col items-center justify-center opacity-80 scroll-indicator">
+                    <span class="text-[10px] tracking-[0.5em] uppercase font-bold mb-2">Scroll Down</span>
+                    <svg class="animate-bounce" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                    </svg>
+                </div>
+            </div>
         </div>
-    </div>
 
     <main class="relative z-20 -mt-[30vh] pt-[35vh]">
         <div class="max-w-6xl mx-auto p-8">
@@ -73,13 +85,6 @@
     </div>
 
     <script>
-
-        // fetch('datakarya.json')
-        //     .then(response=>response.json())
-        //     .then(data=>{
-        //         const imgElement = document.getElementById('modal-img');
-        //         imgElement.src = datakarya.${art.img}
-        //     })
 
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
