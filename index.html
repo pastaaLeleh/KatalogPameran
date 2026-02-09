@@ -27,19 +27,22 @@
 </head>
     <body>
         <div id="header-container" class="relative h-screen w-full overflow-hidden">
-            <img id="header-bg" src="img\boston-public-library-l-dWFbRTMoM-unsplash.jpg" class="fixed top-0 left-0 w-full h-full object-cover z-0" alt="Header">
+            <img id="header-bg" src="img\bg.png" class="fixed top-0 left-0 w-full h-full object-cover z-0" alt="Header">
         
-            <div id="header-content" class="relative flex flex-col items-center justify-center h-full text-white drop-shadow-xl ">
-                <div class="fixed top-12 flex flex-row items-center w-[150px] h-[50px] gap-[10px] bg-white rounded-full drop-shadow-xl p-3">
+            <div id="header-content" class="relative flex flex-col items-center justify-center h-full drop-shadow-xl p-8">
+                <div class="fixed top-12 flex flex-row items-center w-[150px] h-[50px] gap-[10px] bg-white/90 rounded-full drop-shadow-xl p-3">
                     <img src="img\logo-smada-lumajang.png" class="w-[35px] h-[35px]"></img>
                     <img src="img\logokelas.jpg" class="w-[35px] h-[35px] items-right rounded-full"></img>
                     <img src="img\logoUprak.png" class="w-[35px] h-[35px] items-right rounded-full"></img>
                 </div>
 
-                <p1 class="text-sm tracking-[0.3em] uppercase font-bold font-poppins drop-shadow-xl">Ujian Praktek Seni Rupa Kelas 12</p1>
-                <img id="header-text" src="img\text.png" class="p-8"></img>
-                <!-- <h1 class="text-5xl md:text-7xl font-serif font-bold uppercase">Pameran</h1> -->
-                <p1 class="text-sm tracking-[0.3em] uppercase font-bold font-poppins drop-shadow-xl">Pameran Karya Seni XII-Anomali</p1>
+
+                <div id="headerElement" class="relative flex flex-col items-center justify-center gap-[50px] bg-white/90 backdrop-blur-xl rounded-[25px] p-9">
+                    <p1 class="text-[12px] tracking-[0.2em] uppercase font-bold font-poppins text-center text-[#1f1a47] drop-shadow-xl">Ujian Praktek Seni Rupa Kelas 12</p1>
+                    <img src="img\text.png" class="p-3 drop-shadow-lg"></img>
+                    <p1 class="text-[12px] tracking-[0.2em] uppercase font-bold font-poppins text-center text-[#1f1a47] drop-shadow-xl">Pameran Karya Seni XII-Anomali</p1>
+                </div>
+                
 
                 <div id="scroll-hint" class="absolute bottom-12 flex flex-col items-center justify-center opacity-80 scroll-indicator">
                     <span class="text-[10px] tracking-[0.5em] uppercase font-bold mb-2">Scroll Down</span>
@@ -53,9 +56,9 @@
     <main class="relative z-20 -mt-[30vh] pt-[35vh]">
         <div class="max-w-6xl mx-auto p-8">
             <div id="main-text" class="relative flex flex-col items-center justify-center text-white drop-shadow-xl">
-                <p1 class="text-sm text-white mb-4">Mempersembahkan</p1> 
+                <p1 class="text-sm text-[#1f1a47] mb-4">Mempersembahkan</p1> 
             </div>
-            <div class="h-[1px] bg-gray-200 w-s mb-6"></div>
+            <div class="h-[1px] bg-[#1f1a47] w-s mb-6"></div>
             <div id="art-gallery" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"></div>
         </div>
     </main>
@@ -100,7 +103,7 @@
         
         if (scrollValue <= screenHeight*1.5) {
             headerBg.style.transform = `scale(${scale})`;
-            headerText.style.transform = `scale(${scale})`;
+            // headerText.style.transform = `scale(${scale})`;
             headerBg.style.filter = `blur(${blur}px)`;
         }
     });
@@ -119,7 +122,7 @@
             allArtworks.forEach(art => {
 
                 const card = document.createElement('div');
-                card.className = "break-inside-avoid bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100 mb-6";
+                card.className = "break-inside-avoid bg-white/90 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100 mb-6";
                 
                 card.innerHTML = `
                     <img src="${art.img}" class="w-full h-auto block pointer-events-none" alt="${art.title}">
