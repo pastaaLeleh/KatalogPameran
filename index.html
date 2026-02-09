@@ -30,7 +30,7 @@
             <img id="header-bg" src="img\bg.png" class="fixed top-0 left-0 w-full h-full object-cover z-0" alt="Header">
         
             <div id="header-content" class="relative flex flex-col items-center justify-center h-full drop-shadow-xl p-8">
-                <div class="fixed top-12 flex flex-row items-center w-[150px] h-[50px] gap-[10px] bg-white/90 rounded-full drop-shadow-xl p-3">
+                <div class="fixed top-12 flex flex-row items-center w-[150px] h-[50px] gap-[10px] bg-white/85rounded-full drop-shadow-xl p-3">
                     <img src="img\logo-smada-lumajang.png" class="w-[35px] h-[35px]"></img>
                     <img src="img\logokelas.jpg" class="w-[35px] h-[35px] items-right rounded-full"></img>
                     <img src="img\logoUprak.png" class="w-[35px] h-[35px] items-right rounded-full"></img>
@@ -75,9 +75,9 @@
                 </button>
             </div>
 
-            <div class="px-8 pb-8">
+            <div class="px-8 pb-8 font-poppins text-[#1f1a47]">
                 <img id="modal-img" src="" class="w-full h-auto max-h-[70vh] object-contain rounded shadow-inner mb-6" alt="">
-                <h2 id="modal-title" class="text-3xl font-bold font-serif mb-2"></h2>
+                <h2 id="modal-title" class="text-3xl font-bold mb-2 font-[#1f1a47]"></h2>
                 <p id="modal-artist" class="text-lg text-gray-600 italic"></p>
                 <p id="modal-year" class="text-sm text-gray-400 mb-6"></p>
                 <p id="modal-size" class="text-sm text-gray-600 mb-1"></p>
@@ -127,8 +127,8 @@
                 card.innerHTML = `
                     <img src="${art.img}" class="w-full h-auto block pointer-events-none" alt="${art.title}">
                     <div class="p-5 pointer-events-none">
-                        <h3 class="font-serif font-bold text-xl mb-1">${art.title}</h3>
-                        <p class="text-gray-500 text-sm">${art.artist}</p>
+                        <h3 class="font-poppins text-[#1f1a47] font-bold text-xl mb-1">${art.title}</h3>
+                        <p class="font-poppins text-gray-600 text-sm">${art.artist}</p>
                     </div>
                 `;
 
