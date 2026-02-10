@@ -107,7 +107,11 @@
             headerBg.style.filter = `blur(${blur}px)`;
         }
     });
-
+    const secret = "img/special.jpg";
+    const secrettitle = "Lorem Ipsum";
+    const secretdesc = "WOW kamu baru aja dapet anomali rahasia!!!!, konon hanya 1 orang dari 67 juta manusia yang dapet ini, yukk cepetan lapor dan klaim hadiahnya!!!";
+    let anomalycount = 0;
+    let specialappeared = 0;
     let allArtworks = [];
 
     async function loadGallery() {
@@ -120,10 +124,23 @@
             gallery.innerHTML = ''; 
 
             allArtworks.forEach(art => {
+                const chance = Math.floor(Math.random()*100);
 
                 const card = document.createElement('div');
                 card.className = "break-inside-avoid bg-white/90 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100 mb-6";
                 
+                if("anomaly" in art && chance%4==0){
+                    anomalycount+=1;
+                    art.img = art.anomaly;
+                    art.desc = art.anomalydesc;
+                    art.title = art.anomalytitle;
+                }else if("anomaly" in art && chance==67 && specialappeared == 0){
+                    anomalycount+=1;
+                    specialappeared=1;
+                    art.img = secret;
+                    art.desc = secretdesc;
+                    art.title = secrettitle;
+                } 
                 card.innerHTML = `
                     <img src="${art.img}" class="w-full h-auto block pointer-events-none" alt="${art.title}">
                     <div class="p-5 pointer-events-none">
