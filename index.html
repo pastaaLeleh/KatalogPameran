@@ -129,12 +129,12 @@
                 const card = document.createElement('div');
                 card.className = "break-inside-avoid bg-white/90 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100 mb-6";
                 
-                if("anomaly" in art && chance%4==0){
+                if("anomaly" in art && chance%6==0){
                     anomalycount+=1;
                     art.img = art.anomaly;
                     art.desc = art.anomalydesc;
                     art.title = art.anomalytitle;
-                }else if("anomaly" in art && chance==67 && specialappeared == 0){
+                }else if("anomaly" in art && chance==67 || chance==97 && specialappeared == 0){
                     anomalycount+=1;
                     specialappeared=1;
                     art.img = secret;

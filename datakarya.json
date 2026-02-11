@@ -23,6 +23,11 @@
     "size": "29.7 × 42",
     "desc": "\"\"Melodi Angin dan Tawa\"\" bermakna tentang indahnya hidup dalam harmoni, di mana kebahagiaan sejati tercipta dari kemampuan kita menikmati hal-hal kecil seperti desiran alam dan tawa yang tulus. Ini adalah pengingat untuk menjalani hidup dengan seimbang, melepaskan beban pikiran, dan menghargai setiap irama perjalanan tanpa harus terburu-buru mencapai tujuan.",
     "img": "img/k-2.jpg",
+
+    "anomaly": "img/k-2a.jpg",
+    "anomalydesc": "Woilah Mas Beruang sampe keenakan gitu lho ya",
+    "anomalytitle": "Muani Angin dan Nikmat",
+
     "rating kenz: (ngasi dibawah 9 ga solid)": "9"
   },
   {
@@ -337,6 +342,11 @@
     "size": "29.7 × 42",
     "desc": "Ilustrasi ini menggambarkan kebersamaan yang muncul melalui aktivitas sederhana di dapur. Ruang yang kecil menjadi tempat bertemunya berbagai peran, di mana kerja sama dan interaksi sehari-hari menciptakan suasana hangat dan akrab. Melalui karya ini, dapur dimaknai bukan sekadar ruang domestik, tetapi sebagai ruang tumbuhnya rasa kebersamaan dan kenyamanan.",
     "img": "img/k-25.jpg",
+
+    "anomaly": "img/k-25a.jpg",
+    "anomalydesc": "Dibalik layar dapur MBG",
+    "anomalytitle": "Dapur MBG, Cerita Keracunan",
+
     "rating kenz: (ngasi dibawah 9 ga solid)": "2"
   },
   {
@@ -451,6 +461,11 @@
     "size": "29.7 × 42",
     "desc": "Suasana nyaman di warung ramen Jepang ala Studio Ghibli yang melambangkan kehangatan dan kebahagiaan sederhana saat menikmati semangkuk ramen panas.",
     "img": "img/k-33.jpg",
+
+    "anomaly": "img/k-33a.jpg",
+    "anomalydesc": "Capek ditimpa di facebook, Ohim kini ditimpa di katalog",
+    "anomalytitle": "Ramen Hangat Ohim",
+
     "rating kenz: (ngasi dibawah 9 ga solid)": "1"
   },
   {
